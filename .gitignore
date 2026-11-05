@@ -1,0 +1,19 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+dist/
+coverage/
+.data/
+
+# data klien (repo publik)
+PDF Estimasi Hasil/
+engine/fixtures/septi_real.json
+
+*.tsbuildinfo
+apps/web/next-env.d.ts

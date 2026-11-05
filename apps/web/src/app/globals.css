@@ -1,0 +1,129 @@
+:root {
+  --color-ground: #F3F4F1;
+  --color-surface: #FFFFFF;
+  --color-ink: #1A2023;
+  --color-text-muted: #5B666B;
+  --color-text-secondary: #3C474C;
+  --color-line: #DDE1DD;
+  --color-line-soft: #EDEFEC;
+  --color-border-input: #AEB8BB;
+  --color-sidebar: #1A2023;
+  --color-sidebar-active: #2B3337;
+  --color-sidebar-text: #C9D1D3;
+  --color-sidebar-subtext: #AEB8BB;
+  --color-accent: #F5A800;
+  --color-link: #134E8E;
+  --color-link-hover: #0D3A6B;
+  --color-selected-bg: #E3EEFA;
+  --color-selected-border: #134E8E;
+  --color-info-bg: #E3EEFA;
+  --color-info-text: #134E8E;
+  --color-warn-bg: #FDF0D5;
+  --color-warn-text: #6F4300;
+  --color-strong-bg: #FBE3CC;
+  --color-strong-text: #7A3B00;
+  --color-neutral-bg: #ECEFEC;
+  --color-neutral-text: #3C474C;
+  --color-highlight: #C96A00;
+  --color-part-fill: #D8E4F2;
+  --color-part-border: #134E8E;
+  --color-disabled-bg: #DDE1DD;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --radius-small: 4px;
+  --radius-control: 8px;
+  --radius-card: 10px;
+  --radius-pill: 999px;
+  --control-height: 44px;
+  --sidebar-width: 232px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+}
+a { color: var(--color-link); }
+a:hover { color: var(--color-link-hover); }
+h1 { font-size: 28px; font-weight: 700; margin: 0; }
+h2 { font-size: 16px; font-weight: 600; margin: 0 0 12px; }
+.mono { font-family: var(--font-mono); font-weight: 500; }
+.muted { color: var(--color-text-muted); font-size: 13px; }
+
+/* Rangka */
+.rangka { display: flex; flex-wrap: wrap; min-height: 100vh; }
+.sidebar {
+  flex: 1 1 var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  background: var(--color-sidebar);
+  color: var(--color-sidebar-text);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar .merek { display: flex; align-items: center; gap: 10px; padding: 0 8px 20px; color: #fff; font-weight: 600; }
+.sidebar .logo { width: 28px; height: 28px; border-radius: var(--radius-small); background: var(--color-accent); }
+.sidebar a {
+  display: flex; align-items: center; min-height: var(--control-height);
+  padding: 0 12px; border-radius: var(--radius-control);
+  color: var(--color-sidebar-text); text-decoration: none;
+}
+.sidebar a[aria-current="page"] { background: var(--color-sidebar-active); color: #fff; border-left: 3px solid var(--color-accent); }
+.sidebar .pengguna { margin-top: auto; padding: 12px 8px 0; color: var(--color-sidebar-subtext); font-size: 13px; }
+.konten { flex: 999 1 560px; padding: 32px 40px 48px; min-width: 0; }
+@media (max-width: 760px) {
+  .sidebar { max-width: none; flex-basis: 100%; }
+  .konten { padding: 24px 16px 40px; }
+}
+.kepala { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; }
+
+/* Komponen */
+.kartu { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-card); padding: 16px 20px; }
+.kartu + .kartu { margin-top: 16px; }
+.tombol {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--control-height); padding: 0 20px;
+  border-radius: var(--radius-control); font: inherit; font-weight: 600;
+  background: var(--color-ink); color: #fff; border: 1px solid var(--color-ink);
+  cursor: pointer; text-decoration: none;
+}
+.tombol.sekunder { background: #fff; color: var(--color-ink); border-color: var(--color-border-input); }
+.tombol:disabled { background: var(--color-disabled-bg); color: var(--color-text-secondary); border-color: var(--color-disabled-bg); cursor: not-allowed; }
+.tab { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tab a {
+  display: inline-flex; align-items: center; min-height: var(--control-height); padding: 0 18px;
+  border-radius: var(--radius-control); border: 1px solid var(--color-border-input);
+  background: #fff; color: var(--color-ink); text-decoration: none; font-weight: 600;
+}
+.tab a[aria-selected="true"] { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+.bungkus-tabel { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--color-surface); }
+th { font-size: 12px; font-weight: 600; color: var(--color-text-muted); text-align: left; padding: 10px 16px; }
+td { padding: 12px 16px; border-top: 1px solid var(--color-line-soft); vertical-align: top; }
+td.angka { font-family: var(--font-mono); font-weight: 500; text-align: right; }
+.chip {
+  display: inline-block; padding: 2px 8px; border-radius: var(--radius-pill);
+  font-size: 12px; font-weight: 600; white-space: nowrap;
+}
+.chip.info { background: var(--color-info-bg); color: var(--color-info-text); }
+.chip.warn { background: var(--color-warn-bg); color: var(--color-warn-text); }
+.chip.strong { background: var(--color-strong-bg); color: var(--color-strong-text); }
+.chip.neutral { background: var(--color-neutral-bg); color: var(--color-neutral-text); }
+label { display: block; font-weight: 600; margin-bottom: 4px; }
+input, select, textarea {
+  width: 100%; min-height: var(--control-height); padding: 0 12px;
+  border: 1px solid var(--color-border-input); border-radius: var(--radius-control);
+  font: inherit; background: #fff; color: var(--color-ink);
+}
+textarea { padding: 10px 12px; }
+.baris-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.galat { background: var(--color-strong-bg); color: var(--color-strong-text); padding: 10px 14px; border-radius: var(--radius-control); margin-bottom: 12px; }
+.kosong { color: var(--color-text-muted); padding: 24px; text-align: center; }
+.ringkasan { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.ringkasan .angka { font-family: var(--font-mono); font-size: 24px; font-weight: 600; }
+.masuk { max-width: 400px; margin: 12vh auto; padding: 0 16px; }

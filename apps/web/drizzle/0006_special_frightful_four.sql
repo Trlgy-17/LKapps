@@ -1,0 +1,1 @@
+ALTER TABLE "halaman_lembar" ADD COLUMN "jenis" text;
